@@ -3,17 +3,21 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://dnnguyen03.github.io/BudgetApp/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "vite build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "antd": "^5.7.0",
     "dayjs": "^1.11.9",
     "firebase": "^10.0.0",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-dom": "^18.2.0",

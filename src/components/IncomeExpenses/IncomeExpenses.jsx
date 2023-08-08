@@ -77,8 +77,8 @@ export default function IncomeExpenses() {
           placeholder="Search"
           onChange={handleSearchFilter}
         />
-        <div className="mt-6">
-          <ul className="flex flex-col gap-2 relative">
+        <div className="mt-6 ">
+          <ul className="flex flex-col gap-2 relative h-[370px] overflow-y-auto">
             {listWork?.map((item) => (
               <Work key={item.id} item={item} data={data} />
             ))}

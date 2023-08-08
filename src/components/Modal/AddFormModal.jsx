@@ -31,17 +31,21 @@ export default function AddFormModal({ openModal, setOpenModal, data }) {
     setNameWork("")
     setCostWork("")
     setSelectTag("Income")
-
     setOpenModal(false)
   }
-
+  const handleCancel = () => {
+    setNameWork("")
+    setCostWork("")
+    setSelectTag("Income")
+    setOpenModal(false)
+  }
   return (
     <Modal
       title="Income and Expenses"
       open={openModal}
       okButtonProps={{ style: { backgroundColor: "#068FFF" } }}
       onOk={handleOk}
-      onCancel={() => setOpenModal(false)}
+      onCancel={handleCancel}
     >
       <div className="flex flex-col gap-3 my-4">
         <div className="w-full">
