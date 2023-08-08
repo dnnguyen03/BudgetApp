@@ -17,7 +17,7 @@ export default function AuthProvider({ children }) {
       if (user) {
         const { email, uid } = user
         setUser({ email, uid })
-        navigate("/")
+        navigate("/BudgetApp/")
         setLoading(false)
 
         return

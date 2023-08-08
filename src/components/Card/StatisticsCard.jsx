@@ -8,7 +8,7 @@ export default function StatisticsCard({ color, icon, title, value }) {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    const duration = 900 // Thời gian trong ms (0.3 giây)
+    const duration = 900
     const start = performance.now()
 
     const animateCount = (timestamp) => {

@@ -12,7 +12,7 @@ function App() {
         <AuthProvider>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Main />} />
+            <Route path="/BudgetApp" element={<Main />} />
             <Route path="*" element={<Login />} />
           </Routes>
           <AddFormModal />
