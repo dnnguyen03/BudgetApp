@@ -1,36 +1,40 @@
-import { useState } from "react"
-import { useEffect } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 import tinycolor from "tinycolor2"
 
 export default function StatisticsCard({ color, icon, title, value }) {
   const colorBtn = tinycolor(color).lighten(20).toString()
 
   const [count, setCount] = useState(0)
+  const [hasAnimated, setHasAnimated] = useState(false)
 
-  useEffect(() => {
-    const duration = 900
-    const start = performance.now()
+  useLayoutEffect(() => {
+    if (!hasAnimated) {
+      const duration = 800
+      const start = performance.now()
 
-    const animateCount = (timestamp) => {
-      const progress = timestamp - start
-      const increment = Math.ceil((value / duration) * progress)
+      const animateCount = (timestamp) => {
+        const progress = timestamp - start
+        const increment = Math.ceil((value / duration) * progress)
 
-      if (progress >= duration) {
-        setCount(value)
-        return
+        if (progress >= duration) {
+          setCount(value)
+          setHasAnimated(true)
+          return
+        }
+
+        setCount(increment)
+        requestAnimationFrame(animateCount)
       }
 
-      setCount(increment)
-
       requestAnimationFrame(animateCount)
-    }
 
-    requestAnimationFrame(animateCount)
-
-    return () => {
-      cancelAnimationFrame(animateCount)
+      return () => {
+        cancelAnimationFrame(animateCount)
+      }
+    } else {
+      setCount(value)
     }
-  }, [value])
+  }, [hasAnimated, value])
 
   return (
     <div
